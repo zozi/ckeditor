@@ -26,9 +26,7 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'about' }
 	];
 
-  config.extraPlugins = 'dragdrop';
-
-  // config.contentsCss = '/vendor/ckeditor/contents.css';
+  config.extraPlugins = 'dragdrop,confighelper';
 
   config.placeholder = 'HELLO THIS IS A PLACEHOLDER';
 
