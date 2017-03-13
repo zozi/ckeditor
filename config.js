@@ -32,7 +32,7 @@ CKEDITOR.editorConfig = function( config ) {
 
 	config.extraPlugins = 'dragdrop,confighelper';
 
-	config.placeholder = '<p>The text of your electronic document goes here.</p><br><p>You can also drag and drop required fields from the righthand side into the tempate.</p>';
+	config.placeholder = '<h2>The text of your electronic document goes here.</h2><h3>You can also drag and drop required fields from the righthand side into the tempate.</h3>';
 
 	// Set the most common block elements.
 	config.format_tags = 'p;h1;h2;h3;pre';

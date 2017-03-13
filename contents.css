@@ -192,8 +192,12 @@ For licensing, see LICENSE.md or http://ckeditor.com/license
 }
 
 .dropped-field {
-  border: 1px solid lightgray;
-  padding: 2px;
-  text-align: center;
-  color: lightgray;
+	border: 1px solid lightgray;
+	padding: 2px;
+	text-align: center;
+	color: lightgray;
+}
+
+.ckeditor-preview ul {
+	list-style-type: initial;
 }
