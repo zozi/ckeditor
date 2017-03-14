@@ -18,7 +18,7 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'tools' },
 		{ name: 'document',	   groups: [ 'mode', 'document', 'doctools' ] },
 		{ name: 'others' },
-		'/',
+
 		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
 		{ name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
 		{ name: 'styles' },
@@ -30,9 +30,36 @@ CKEDITOR.editorConfig = function( config ) {
 	// not needed in the Standard(s) toolbar.
 	config.removeButtons = 'Strike,Subscript,Superscript,Anchor';
 
-	config.extraPlugins = 'dragdrop,confighelper';
+	config.extraPlugins = 'confighelper,wordcount,notification,dragdrop';
 
-	config.placeholder = '<h2>The text of your electronic document goes here.</h2><h3>You can also drag and drop required fields from the righthand side into the tempate.</h3>';
+	config.autoParagraph = false;
+
+	config.placeholder = '<h2>The text of your electronic document goes here.</h2><h3>You can also drag and drop required fields from the righthand side into the template.</h3>';
+
+	config.wordcount = {
+
+	    showWordCount: false,
+
+	    showCharCount: true,
+
+    	showParagraphs: false,
+
+	    //maxCharCount: 200,
+
+    	countSpacesAsChars: true,
+
+    	pasteWarningDuration: 0,
+
+    	filter: new CKEDITOR.htmlParser.filter({
+	        elements: {
+	            span: function( element ) {
+	                if(element.attributes.class == 'dropped-field') {
+	                    return false;
+	                }
+	            }
+	        }
+	    })    
+	};
 
 	// Set the most common block elements.
 	config.format_tags = 'p;h1;h2;h3;pre';
