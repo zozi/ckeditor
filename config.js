@@ -11,14 +11,13 @@ CKEDITOR.editorConfig = function( config ) {
 	// The toolbar groups arrangement, optimized for two toolbar rows.
 	config.toolbarGroups = [
 		{ name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },
-		{ name: 'editing',     groups: [ 'find', 'selection', 'spellchecker' ] },
+		{ name: 'editing',     groups: [ 'find', 'selection' ] },
 		{ name: 'links' },
 		{ name: 'insert' },
 		{ name: 'forms' },
 		{ name: 'tools' },
 		{ name: 'document',	   groups: [ 'mode', 'document', 'doctools' ] },
 		{ name: 'others' },
-
 		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
 		{ name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
 		{ name: 'styles' },
@@ -26,15 +25,17 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'about' }
 	];
 
+	config.height = '400px';
+
+	config.allowedContent = true;
+
 	// Remove some buttons provided by the standard plugins, which are
 	// not needed in the Standard(s) toolbar.
 	config.removeButtons = 'Strike,Subscript,Superscript,Anchor';
 
-	config.extraPlugins = 'confighelper,wordcount,notification,dragdrop';
+	config.removePlugins = 'scayt';
 
-	config.autoParagraph = false;
-
-	config.placeholder = '<h2>The text of your electronic document goes here.</h2><h3>You can also drag and drop required fields from the righthand side into the template.</h3>';
+	config.extraPlugins = 'confighelper,wordcount,notification,dragdrop,table,horizontalrule';
 
 	config.wordcount = {
 
@@ -44,7 +45,7 @@ CKEDITOR.editorConfig = function( config ) {
 
     	showParagraphs: false,
 
-	    //maxCharCount: 200,
+	    maxCharCount: 30000,
 
     	countSpacesAsChars: true,
 
@@ -53,8 +54,8 @@ CKEDITOR.editorConfig = function( config ) {
     	filter: new CKEDITOR.htmlParser.filter({
 	        elements: {
 	            span: function( element ) {
-	                if(element.attributes.class == 'dropped-field') {
-	                    return false;
+	                if(element.attributes.class === 'dropped-field') {
+	                    return true;
 	                }
 	            }
 	        }

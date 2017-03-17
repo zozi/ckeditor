@@ -7,6 +7,7 @@ For licensing, see LICENSE.md or http://ckeditor.com/license
 {
     font-size: 13px;
     line-height: 1.6;
+    font-family: 'DINWeb', Arial, Helvetica, sans-serif;
 
     /* Fix for missing scrollbars with RTL texts. (#10488) */
     word-wrap: break-word;
@@ -196,6 +197,7 @@ For licensing, see LICENSE.md or http://ckeditor.com/license
 	padding: 2px;
 	text-align: center;
 	color: lightgray;
+
 }
 
 .ckeditor-preview ul {
